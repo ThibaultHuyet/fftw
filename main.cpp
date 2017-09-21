@@ -15,8 +15,7 @@ void do_something_with(fftw_complex* result)
 	std::ofstream myfile;
 	myfile.open("sine.csv");
 
-    int i;
-    for (i = 0; i < TABLE_SIZE; ++i)
+    for (int i = 0; i < TABLE_SIZE; ++i)
     {
         double mag = sqrt(result[i][0] * result[i][0] +
                           result[i][1] * result[i][1]);
@@ -27,7 +26,6 @@ void do_something_with(fftw_complex* result)
 
 int main()
 {
-
 	double sine[TABLE_SIZE];
 	fftw_complex out[RESULT];
 
@@ -41,7 +39,6 @@ int main()
 	}
 
 	fftw_execute(plan);
-
 	do_something_with(out);
 	fftw_destroy_plan(plan);
 
