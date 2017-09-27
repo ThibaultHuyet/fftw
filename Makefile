@@ -1,5 +1,6 @@
 CC = g++
-LIBS = -lfftw3 -lm
+SRC = $(wildcard src/*.cpp)
+LIBS = -lfftw3f -lm -lmosquitto
 
-main: main.cpp
-	$(CC) main.cpp $(LIBS) -o main -std=c++11
+main: $(SRC)
+	$(CC) $(SRC) $(LIBS) -o main -std=c++11
